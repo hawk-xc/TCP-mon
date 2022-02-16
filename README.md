@@ -7,5 +7,94 @@ pada modul kali ini saya akan mempraktikan cara menginstall dan cara mengimpleme
 
 ### installasi
 
+Sebelumnya saya menggunakan distro linux Ubuntu 20.04 LTS (focal fossa) GUI, teman-teman juga bisa menggunakan distro linux yang lainnya. silakan login menggunakan super user account
 
+```bash
+sudo su
+```
+
+lakukan update repository
+
+```bash
+apt-get update
+```
+
+baiklah disini silakan teman-teman melakukan installasi terhadap web server, disini saya menggunakan web server `Apache2`.
+
+```bash
+apt-get install apache2
+```
+
+jika sudah silakan install package berikut
+
+```bash
+apt-get install wget openjdk-8-jre
+```
+
+unduh tcp-mon pada website resminya dan ekstrak dengan perintah
+
+```bash
+wget http://archive.apache.org/dist/ws/tcpmon/1.0/tcpmon-1.0-bin.zip
+unzip tcpmon-1.0-bin.zip
+```
+
+konfigurasi port listen pada web server pada file konfigurasi, edit dengan nano text editor.
+
+```bash
+nano /etc/apache2/ports.conf
+```
+
+lalu ubah port `listen 80` menjadi `listen 8888'
+```
+Listen 8888
+
+<IfModule ssl_module>
+        Listen 443
+</IfModule>
+
+<IfModule mod_gnutls.c>
+        Listen 443
+</IfModule>
+```
+
+dan masuk lagi ke konfigurasi pada file
+
+```bash
+nano /etc/apache2/sites-available/000-default.conf
+```
+
+lalu ubah konfigurasi pada `<Virtualhost *:80>` menjadi `<Virtualhost *:8888>`
+```                                                            
+<VirtualHost *:8888>
+        # The ServerName directive sets the request scheme, hostname and port that
+        # the server uses to identify itself. This is used when creating
+        # redirection URLs. In the context of virtual hosts, the ServerName
+        # specifies what hostname must appear in the request's Host: header to
+        # match this virtual host. For the default virtual host (this file) this
+        # value is not decisive as it is used as a last resort host regardless.
+        # However, you must set it for any further virtual host explicitly.
+        #ServerName www.example.com
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        # For most configuration files from conf-available/, which are
+        # enabled or disabled at a global level, it is possible to
+        # include a line for only one particular virtual host. For example the
+        # following line enables the CGI configuration for this host only
+        # after it has been globally disabled with "a2disconf".
+        #Include conf-available/serve-cgi-bin.conf
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+```
 
