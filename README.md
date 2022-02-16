@@ -70,3 +70,35 @@ lalu ubah konfigurasi pada `<Virtualhost *:80>` menjadi `<Virtualhost *:8888>`
 <VirtualHost *:8888>
 ```
 
+start dan restart konfigurasi pada web server dengan perintah
+
+```bash
+systemctl start apache2
+systemctl restart apache2
+```
+
+### jalankan tcp-mon
+
+sebelumnya silakan check ip address OS linux teman-teman, dengan perintah
+
+```bash
+ifconfig
+```
+```
+enp2s0f1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.2.15  netmask 255.255.255.0  broadcast 192.168.2.255
+        inet6 fe80::f276:1cff:fec2:542c  prefixlen 64  scopeid 0x20<link>
+        ether f0:76:1c:c2:54:2c  txqueuelen 1000  (Ethernet)
+        RX packets 1245105  bytes 328954839 (328.9 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 559003  bytes 2553832235 (2.5 GB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 43  base 0x5000  
+```
+
+jalankan tools tcp-mon dengan perintah
+
+```bash
+./build/tcpmon.sh
+```
+
