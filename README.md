@@ -58,5 +58,10 @@ Listen 8888
 </IfModule>
 ```
 
+dan masuk lagi ke konfigurasi pada file
+
+```bash
+nano /etc/apache2/sites-available/000-default.conf
+```
 
 
