@@ -102,3 +102,16 @@ jalankan tools tcp-mon dengan perintah
 ./build/tcpmon.sh
 ```
 
+![Screenshot from 2022-02-16 23-05-21](https://user-images.githubusercontent.com/92193431/154382560-6180ca43-9957-438e-ac2c-01f0afec2500.png)
+
+pada jendela workspace, silakan teman-teman masuk navbar admin, disini isikan port listen, hostname dan target port. disini saya menggunakan listen port `8080`, target hostname `192.168.2.15` dan target port `8888`.
+
+
+![Screenshot from 2022-02-17 07-51-24](https://user-images.githubusercontent.com/92193431/154383032-b8a0947b-ecf7-43ab-ab98-cfec2ddede85.png)
+
+dan sekarang silakan teman-teman coba akses web server menggunakan  port 8080 pada sisi client
+
+
+![Screenshot from 2022-02-17 07-54-56](https://user-images.githubusercontent.com/92193431/154383383-23b2c62d-f7c8-4c3e-9b89-a03bde8157f2.png)
+
+
