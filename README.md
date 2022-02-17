@@ -107,7 +107,7 @@ jalankan tools tcp-mon dengan perintah
 pada jendela workspace, silakan teman-teman masuk navbar admin, disini isikan port listen, hostname dan target port. disini saya menggunakan listen port `8080`, target hostname `192.168.2.15` dan target port `8888`.
 
 
-![Screenshot from 2022-02-17 07-51-24](https://user-images.githubusercontent.com/92193431/154383032-b8a0947b-ecf7-43ab-ab98-cfec2ddede85.png)
+![Screenshot from 2022-02-17 07-57-05](https://user-images.githubusercontent.com/92193431/154383565-a6454239-8511-47a3-8de6-ec12dc3ae238.png)
 
 dan sekarang silakan teman-teman coba akses web server menggunakan  port 8080 pada sisi client
 
